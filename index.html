@@ -1,43 +1,61 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Simon</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>Simon</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-</head>
+  <body>
+    <h1 id="level-title">Press A Key to Start</h1>
+    <button id="start-btn" class="start-button">Start</button>
+    <button id="Rules" class="rules-button">Rules</button>
+    <div class="container">
+      <div class="row">
+        <div type="button" id="green" class="btn green"></div>
 
-<body>
-  <h1 id="level-title">Press A Key to Start</h1>
-  <div class="container">
-    <div lass="row">
-
-      <div type="button" id="green" class="btn green">
-
+        <div type="button" id="red" class="btn red"></div>
       </div>
 
-      <div type="button" id="red" class="btn red">
-
+      <div class="row">
+        <div type="button" id="yellow" class="btn yellow"></div>
+        <div type="button" id="blue" class="btn blue"></div>
       </div>
     </div>
 
-    <div class="row">
-
-      <div type="button" id="yellow" class="btn yellow">
-
+    <div class="popup-overlay" id="popup-overlay">
+      <div class="popup" id="rules-popup">
+        <span class="close-btn" id="close-popup">&times;</span>
+        <div class="popup-content">
+          <h2>Simon Game Rules</h2>
+          <p>
+            The game will generate a random sequence of colors. Your goal is to
+            repeat the sequence by clicking the colored buttons.
+          </p>
+          <p>
+            The sequence will get longer each round. If you click the wrong
+            color, the game is over!
+          </p>
+        </div>
+        <div class="lottie-container">
+          <lottie-player
+            src="ec38a27c-38c5-4b7f-ae7c-f641a03a7e67.json"
+            background="transparent"
+            speed="1"
+            style="width: 150px; height: 150px"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
       </div>
-      <div type="button" id="blue" class="btn blue">
-
-      </div>
-
     </div>
 
-  </div>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="game.js" charset="utf-8"></script>
-
-</body>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="game.js" charset="utf-8"></script>
+  </body>
 </html>

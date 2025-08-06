@@ -6,12 +6,24 @@ var userClickedPattern = [];
 var started = false;
 var level = 0;
 
-$(document).keypress(function () {
+// Function to start the game
+function startGame() {
   if (!started) {
     $("#level-title").text("Level " + level);
     nextSequence();
     started = true;
+    $("#start-btn").hide(); // Hide the start button after the game begins
   }
+}
+
+// Start the game by pressing any key
+$(document).keypress(function () {
+  startGame();
+});
+
+// Start the game by clicking the start button
+$("#start-btn").click(function () {
+  startGame();
 });
 
 $(".btn").click(function () {
@@ -22,6 +34,15 @@ $(".btn").click(function () {
   animatePress(userChosenColour);
 
   checkAnswer(userClickedPattern.length - 1);
+});
+
+// Event listeners for the rules popup
+$("#Rules").click(function () {
+  $("#popup-overlay").show();
+});
+
+$("#close-popup").click(function () {
+  $("#popup-overlay").hide();
 });
 
 function checkAnswer(currentLevel) {
@@ -75,4 +96,5 @@ function startOver() {
   level = 0;
   gamePattern = [];
   started = false;
+  $("#start-btn").show();
 }
